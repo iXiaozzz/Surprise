@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>相册</title>
+    <link rel="stylesheet" href="css/indexStyle.css">
+</head>
+<body>
+
+<div class="hovertreeinfo">
+    <div id="audio_btn" class="rotate">
+        <audio loop src="source/music.mp3" id="media" autoplay="" preload=""></audio>
+    </div>
+    <!--/*外层最大容器*/-->
+    <div class="wrap">
+        <!-- /*包裹所有元素的容器*/-->
+        <div class="cube">
+            <!--前面图片 -->
+            <div class="out_front">
+                <img src="images/1.jpg" class="pic"/>
+            </div>
+            <!--后面图片 -->
+            <div class="out_back">
+                <img src="images/2.jpg" class="pic"/>
+            </div>
+            <!--左图片 -->
+            <div class="out_left">
+                <img src="images/3.jpg" class="pic"/>
+            </div>
+            <div class="out_right">
+                <img src="images/4.jpg" class="pic"/>
+            </div>
+            <div class="out_top">
+                <img src="images/5.jpg" class="pic"/>
+            </div>
+            <div class="out_bottom">
+                <img src="images/6.jpg" class="pic"/>
+            </div>
+
+            <!--小正方体 -->
+            <span class="in_front">
+                <img src="images/1.jpg" class="in_pic"/>
+            </span>
+            <span class="in_back">
+                <img src="images/2.jpg" class="in_pic"/>
+            </span>
+            <span class="in_left">
+                <img src="images/3.jpg" class="in_pic"/>
+            </span>
+            <span class="in_right">
+                <img src="images/4.jpg" class="in_pic"/>
+            </span>
+            <span class="in_top">
+                <img src="images/5.jpg" class="in_pic"/>
+            </span>
+            <span class="in_bottom">
+                <img src="images/6.jpg" class="in_pic"/>
+            </span>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+    var x = document.getElementById("media");
+    $(function () {
+        $("#audio_btn").click(function () {
+            $(this).toggleClass("rotate"); //控制音乐图标 自转或暂停(删除旋转属性)
+            if ($(this).hasClass("rotate")) {//判断div是否包含指定类名，并指定音乐是否播放
+                x.play();
+            } else {
+                x.pause();
+            }
+        })
+    });
+</script>
+</html>

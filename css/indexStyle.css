@@ -1,0 +1,213 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+html {
+    background: linear-gradient(#ccc 0%, #000 85%);
+    color: #ffffff;
+}
+
+.hovertreeinfo {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.hovertreeinfo a {
+    color: white;
+}
+
+/*最外层容器样式*/
+.wrap {
+    width: 7rem;
+    height: 7rem;
+    /*改变左右上下,图片方块移动*/
+    /*margin: 11.75rem auto;*/
+    position: relative;
+    padding: 7rem;
+    margin: 0 auto;
+
+}
+
+/*包裹所有容器样式*/
+.cube {
+    width: 7rem;
+    height: 7rem;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(-80deg);
+    -webkit-animation: rotate 20s infinite;
+    /*匀速*/
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.cube div {
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    opacity: 0.8;
+    transition: all .4s;
+}
+
+/*定义所有图片样式*/
+.pic {
+    width: 7rem;
+    height: 7rem;
+}
+
+.cube .out_front {
+    transform: rotateY(0deg) translateZ(3.5rem);
+}
+
+.cube .out_back {
+    transform: translateZ(-3.5rem) rotateY(180deg);
+}
+
+.cube .out_left {
+    transform: rotateY(90deg) translateZ(3.5rem);
+}
+
+.cube .out_right {
+    transform: rotateY(-90deg) translateZ(3.5rem);
+}
+
+.cube .out_top {
+    transform: rotateX(90deg) translateZ(3.5rem);
+}
+
+.cube .out_bottom {
+    transform: rotateX(-90deg) translateZ(3.5rem);
+}
+
+/*定义小正方体样式
+*/
+.cube span {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: absolute;
+    top: 1.75rem;
+    left: 1.75rem;
+}
+
+.cube .in_pic {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.cube .in_front {
+    transform: rotateY(0deg) translateZ(1.75rem);
+}
+
+.cube .in_back {
+    transform: translateZ(-1.75rem) rotateY(180deg);
+}
+
+.cube .in_left {
+    transform: rotateY(90deg) translateZ(1.75rem);
+}
+
+.cube .in_right {
+    transform: rotateY(-90deg) translateZ(1.75rem);
+}
+
+.cube .in_top {
+    transform: rotateX(90deg) translateZ(1.75rem);
+}
+
+.cube .in_bottom {
+    transform: rotateX(-90deg) translateZ(1.75rem);
+}
+
+/*鼠标移入后样式*/
+.cube:hover .out_front {
+    transform: rotateY(0deg) translateZ(7rem);
+}
+
+.cube:hover .out_back {
+    transform: translateZ(-7rem) rotateY(180deg);
+}
+
+.cube:hover .out_left {
+    transform: rotateY(90deg) translateZ(7rem);
+}
+
+.cube:hover .out_right {
+    transform: rotateY(-90deg) translateZ(7rem);
+}
+
+.cube:hover .out_top {
+    transform: rotateX(90deg) translateZ(7rem);
+}
+
+.cube:hover .out_bottom {
+    transform: rotateX(-90deg) translateZ(7rem);
+}
+
+/*播放音乐按钮*/
+#audio_btn {
+    position: absolute;
+    right: .25rem;
+    top: .2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #fff;
+    /*background: red;*/
+    /*background-size: contain;*/
+    background: url("../images/music83.png")center center  no-repeat;
+    background-size: cover;
+}
+
+.rotate {
+    -webkit-animation: rotating 1.2s linear infinite;
+    -moz-animation: rotating 1.2s linear infinite;
+    -o-animation: rotating 1.2s linear infinite;
+    animation: rotating 1.2s linear infinite
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@-moz-keyframes rotating {
+    from {
+        -moz-transform: rotate(0deg)
+    }
+    to {
+        -moz-transform: rotate(360deg)
+    }
+}
